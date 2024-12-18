@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Acolhidas</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Cabeçalho -->
     <header>
-        <h1>Blog Acolhidas</h1>
-        <p>Um espaço de apoio e acolhimento para mulheres compartilharem suas histórias.</p>
+        <h1 style="
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 5px #333;
+            color: #f67280;
+        ">
+            Blog Acolhidas
+        </h1>
+        <p style="font-size: 1.2rem; font-style: italic; color: #555;">
+            Um espaço de apoio e acolhimento para mulheres compartilharem suas histórias.
+        </p>
     </header>
 
     <!-- Seção de Postagens -->
@@ -24,6 +36,31 @@
                 <h2>Compartilhe Sua Jornada</h2>
                 <p>Seja bem-vinda para contar sua história. Juntas somos mais fortes!</p>
             </article>
+        </section>
+
+        <!-- Caixa de Adicionar História -->
+        <section class="add-story">
+            <div class="container" style="padding: 20px; text-align: center;">
+                <h2>Compartilhe Sua História</h2>
+                <textarea
+                    id="story-input"
+                    placeholder="Escreva sua história aqui..."
+                    rows="5"
+                    style="width: 100%; max-width: 600px; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;"
+                ></textarea>
+                <button
+                    id="submit-story"
+                    style="margin-top: 10px; padding: 10px 20px; background-color: #ff6b6b; color: white; border: none; border-radius: 5px; cursor: pointer;"
+                >
+                    Enviar História
+                </button>
+                <div id="stories" style="margin-top: 30px;">
+                    <h3>Histórias Compartilhadas</h3>
+                    <ul id="story-list" style="list-style: none; padding: 0; text-align: left; max-width: 600px; margin: 0 auto;">
+                        <!-- Histórias enviadas aparecerão aqui -->
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 

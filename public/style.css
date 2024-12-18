@@ -1,32 +1,41 @@
- /* Reset de margens e padding */
+/* Reset de margens e padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Corpo do site */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f9f9f9;
+    background: url('images/background.webp') no-repeat center center fixed;
+    background-size: cover;
     padding: 20px;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #f67280;
+    background-color: rgba(246, 114, 128, 0.9);
     color: #fff;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 header h1 {
     margin-bottom: 10px;
 }
 
+/* Área principal */
 main {
     margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .posts article {
@@ -42,12 +51,83 @@ main {
     margin-bottom: 10px;
 }
 
+/* Seção de compartilhamento */
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid #f67280;
+    box-shadow: 0 0 5px rgba(246, 114, 128, 0.5);
+}
+
+/* Botões */
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f67280;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e55b5b;
+}
+
+/* Lista de histórias */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffe6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reaction-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.reaction-buttons button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ffcccc;
+    color: #333;
+    border: 1px solid #f67280;
+    border-radius: 5px;
+}
+
+.reaction-buttons button:hover {
+    background-color: #f67280;
+    color: #fff;
+}
+
+/* Rodapé */
 footer {
     text-align: center;
     margin-top: 20px;
     padding: 10px;
-    background-color: #f67280;
+    background-color: rgba(246, 114, 128, 0.9);
     color: #fff;
     border-radius: 10px;
 }
-
