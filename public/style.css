@@ -55,8 +55,12 @@ main {
 
 /* Seção de compartilhamento */
 .add-story .container {
-    text-align: center;
-    margin: 20px auto;
+    color: #3f1d20; /* Mesma cor do botão "Enviar História" */
+    font-size: 1.2rem; /* Ajusta o tamanho do texto */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Torna o texto mais destacado */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 textarea {
