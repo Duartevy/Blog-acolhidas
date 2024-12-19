@@ -1,4 +1,4 @@
-/* Reset de margens e padding */
+/* Reset de margens e padding */  
 * {
     margin: 0;
     padding: 0;
@@ -31,13 +31,15 @@ header h1 {
 
 /* Área principal */
 main {
-    margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%; /* Expandir a largura principal */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px; /* Aumentar o espaçamento interno */
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Postagens */
 .posts article {
     background-color: #fff;
     padding: 15px;
@@ -52,14 +54,22 @@ main {
 }
 
 /* Seção de compartilhamento */
+.add-story .container {
+    text-align: center;
+    margin: 20px auto;
+}
+
 textarea {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    margin-top: 10px;
+    width: 100%; /* Preenche toda a largura disponível */
+    max-width: 800px; /* Define um limite máximo para a largura */
+    height: 150px; /* Aumenta a altura */
+    padding: 15px; /* Ajusta o espaçamento interno */
+    margin: 10px auto;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    display: block;
+    resize: vertical; /* Permite redimensionar a altura manualmente */
 }
 
 textarea:focus {
@@ -68,28 +78,30 @@ textarea:focus {
     box-shadow: 0 0 5px rgba(246, 114, 128, 0.5);
 }
 
-/* Botões */
-button {
-    margin-top: 10px;
+/* Botão de envio */
+button.submit-button {
     padding: 10px 20px;
     background-color: #f67280;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s; /* Adiciona transições */
 }
 
-button:hover {
+button.submit-button:hover {
     background-color: #e55b5b;
+    transform: scale(1.1); /* Aumenta levemente o botão */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    cursor: pointer; /* Garante a mãozinha no hover */
 }
 
 /* Lista de histórias */
-ul {
+ul.story-list {
     list-style: none;
     padding: 0;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
 li {
@@ -101,25 +113,41 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    word-wrap: break-word;
 }
 
+/* Botões de reação */
 .reaction-buttons {
     display: flex;
     gap: 10px;
 }
 
 .reaction-buttons button {
-    padding: 5px 10px;
-    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     background-color: #ffcccc;
-    color: #333;
-    border: 1px solid #f67280;
-    border-radius: 5px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .reaction-buttons button:hover {
     background-color: #f67280;
     color: #fff;
+    transform: scale(1.1);
+}
+
+/* Contagem de reações */
+.reaction-count {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+    text-align: center;
 }
 
 /* Rodapé */
@@ -131,3 +159,25 @@ footer {
     color: #fff;
     border-radius: 10px;
 }
+
+/* Títulos */
+.section-title {
+    font-size: 1.8rem;
+    color: #f67280;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Hover dos títulos e botão */
+.add-story h2 {
+    color: #f67280; /* Cor inicial */
+    transition: color 0.3s, transform 0.3s; /* Suaviza a transição */
+}
+
+.add-story h2:hover {
+    color: #e55b5b; /* Cor ao passar o mouse */
+    transform: scale(1.1); /* Aumenta levemente o tamanho */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao texto */
+    cursor: pointer; /* Adiciona a mãozinha */
+}
+

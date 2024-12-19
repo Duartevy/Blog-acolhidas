@@ -1,68 +1,63 @@
-// Mensagem de boas-vindas
-document.addEventListener("DOMContentLoaded", function () {
-    alert("Bem-vinda ao Blog Acolhidas! Compartilhe suas histórias com a gente.");
-});
-
-// Selecionar elementos
+// Seleciona os elementos
 const storyInput = document.getElementById("story-input");
 const submitStory = document.getElementById("submit-story");
 const storyList = document.getElementById("story-list");
 
-// Adicionar evento ao botão de envio
+// Adiciona evento ao botão de enviar história
 submitStory.addEventListener("click", () => {
-    const storyText = storyInput.value.trim(); // Obter o texto da história
+  const storyText = storyInput.value.trim(); // Obtém o texto da história
 
-    // Validar se o texto não está vazio
-    if (storyText === "") {
-        alert("Por favor, escreva uma história antes de enviar.");
-        return;
-    }
+  // Valida se o texto não está vazio
+  if (storyText === "") {
+    alert("Por favor, escreva uma história antes de enviar.");
+    return;
+  }
 
-    // Criar um novo item de lista para a história
-    const listItem = document.createElement("li");
-    listItem.textContent = storyText;
-    listItem.style.padding = "10px";
-    listItem.style.marginBottom = "10px";
-    listItem.style.border = "1px solid #ddd";
-    listItem.style.borderRadius = "5px";
-    listItem.style.backgroundColor = "#ffe6e6";
+  // Cria um novo item de lista para a história
+  const listItem = document.createElement("li");
+  listItem.style.display = "flex";
+  listItem.style.justifyContent = "space-between";
+  listItem.style.alignItems = "center";
 
-    // Adicionar botões de reação
-    const buttonsContainer = document.createElement("div");
-    buttonsContainer.style.marginTop = "10px";
+  // Adiciona o texto da história
+  const storyContent = document.createElement("span");
+  storyContent.textContent = storyText;
+  listItem.appendChild(storyContent);
 
-    const likeButton = document.createElement("button");
-    likeButton.textContent = "👍 Like";
-    likeButton.style.marginRight = "10px";
-    likeButton.addEventListener("click", () => {
-        alert("Você curtiu esta história!");
+  // Cria o container dos botões de reação
+  const reactionContainer = document.createElement("div");
+  reactionContainer.classList.add("reaction-buttons");
+
+  // Reações disponíveis
+  const reactions = [
+    { emoji: "👍", name: "like" },
+    { emoji: "❤️", name: "love" },
+    { emoji: "🎉", name: "congrats" }
+  ];
+
+  reactions.forEach(({ emoji, name }) => {
+    const button = document.createElement("button");
+    button.innerHTML = emoji; // Adiciona o emoji no botão
+    button.dataset.reaction = name; // Adiciona um identificador para a reação
+
+    // Cria o contador de reações
+    const counter = document.createElement("span");
+    counter.classList.add("reaction-count");
+    counter.textContent = "0";
+    button.appendChild(counter);
+
+    // Adiciona evento de clique para incrementar o contador
+    button.addEventListener("click", () => {
+      const currentCount = parseInt(counter.textContent, 10);
+      counter.textContent = currentCount + 1; // Incrementa o contador
     });
 
-    const loveButton = document.createElement("button");
-    loveButton.textContent = "❤️ Amei";
-    loveButton.style.marginRight = "10px";
-    loveButton.addEventListener("click", () => {
-        alert("Você amou esta história!");
-    });
+    reactionContainer.appendChild(button);
+  });
 
-    const congratsButton = document.createElement("button");
-    congratsButton.textContent = "🎉 Parabéns";
-    congratsButton.addEventListener("click", () => {
-        alert("Você parabenizou esta história!");
-    });
+  listItem.appendChild(reactionContainer);
+  storyList.appendChild(listItem); // Adiciona a história na lista
 
-    // Adicionar os botões ao container e à história
-    buttonsContainer.appendChild(likeButton);
-    buttonsContainer.appendChild(loveButton);
-    buttonsContainer.appendChild(congratsButton);
-    listItem.appendChild(buttonsContainer);
-
-    // Adicionar a história à lista
-    storyList.appendChild(listItem);
-
-    // Limpar o campo de texto
-    storyInput.value = "";
+  // Limpa o campo de texto
+  storyInput.value = "";
 });
-
-
-
